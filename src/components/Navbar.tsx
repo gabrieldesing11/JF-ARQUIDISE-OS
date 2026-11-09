@@ -32,15 +32,22 @@ export const Navbar: React.FC<NavbarProps> = ({
   ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/95 backdrop-blur-md border-b border-neutral-200/90 py-3 shadow-xs'
-          : 'bg-white/80 backdrop-blur-xs border-b border-neutral-100 py-4'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-6">
+    <header className="fixed top-0 left-0 right-0 z-40">
+      {/* Demo Disclaimer Banner */}
+      <div className="bg-[#111112] text-neutral-300 text-[11px] sm:text-xs py-1.5 px-4 text-center font-medium border-b border-neutral-800 flex items-center justify-center gap-2">
+        <span className="w-1.5 h-1.5 rounded-full bg-[#C8A97E] shrink-0" />
+        <span>Propuesta de diseño, no es el sitio oficial de JF Arquidiseños</span>
+      </div>
+
+      <div
+        className={`transition-all duration-300 ${
+          isScrolled
+            ? 'bg-white/95 backdrop-blur-md border-b border-neutral-200/90 py-2.5 shadow-xs'
+            : 'bg-white/90 backdrop-blur-xs border-b border-neutral-100 py-3.5'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between gap-6">
           {/* Brand Logo */}
           <a
             href="#"
@@ -105,6 +112,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
           </div>
         </div>
+      </div>
       </div>
 
       {/* Mobile Drawer */}

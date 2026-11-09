@@ -119,6 +119,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenSavedDrawer }) => {
             <ArrowUp className="w-3.5 h-3.5" />
           </button>
         </div>
+
+        {/* Demo Disclaimer */}
+        <div className="mt-6 pt-4 border-t border-neutral-800/60 text-center">
+          <p className="text-[11px] text-neutral-400 tracking-wide font-normal">
+            Propuesta de diseño, no es el sitio oficial de JF Arquidiseños
+          </p>
+        </div>
       </div>
     </footer>
   );
