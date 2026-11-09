@@ -7,7 +7,7 @@ export const CommunitySection: React.FC = () => {
     <section id="comunidad" className="py-14 sm:py-20 bg-white relative border-b border-neutral-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="max-w-2xl mb-8 sm:mb-12">
+        <div className="max-w-2xl md:mx-auto md:text-center mb-8 sm:mb-12">
           <div className="text-xs uppercase tracking-[0.24em] text-[#C8A97E] mb-1 font-semibold">
             Redes Sociales
           </div>
@@ -19,8 +19,8 @@ export const CommunitySection: React.FC = () => {
           </p>
         </div>
 
-        {/* Just 2 Clean Cards: Instagram and TikTok */}
-        <div className="grid grid-cols-2 gap-3 sm:gap-6 max-w-4xl">
+        {/* Just 2 Clean Cards: Instagram and TikTok (centered on desktop, intact on mobile) */}
+        <div className="grid grid-cols-2 gap-3 sm:gap-6 max-w-2xl md:mx-auto">
           {/* Card 1: INSTAGRAM */}
           <a
             href={BRAND_CONFIG.socials.instagram}

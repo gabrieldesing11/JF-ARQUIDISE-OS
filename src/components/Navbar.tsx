@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, MessageSquare, Bookmark } from 'lucide-react';
+import { Menu, X, Bookmark } from 'lucide-react';
 import { BRAND_CONFIG } from '../data/brandData';
 
 interface NavbarProps {
@@ -85,17 +85,6 @@ export const Navbar: React.FC<NavbarProps> = ({
               )}
             </button>
 
-            {/* Direct WhatsApp Call */}
-            <a
-              href="https://wa.me/573001933834"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center justify-center gap-2 px-5 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-white bg-[#111112] hover:bg-[#C8A97E] hover:text-[#111112] transition-colors whitespace-nowrap cursor-pointer shadow-xs"
-            >
-              <MessageSquare className="w-3.5 h-3.5" />
-              <span>WhatsApp</span>
-            </a>
-
             {/* Mobile menu trigger */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -136,16 +125,6 @@ export const Navbar: React.FC<NavbarProps> = ({
               <Bookmark className="w-4 h-4 text-[#C8A97E]" />
               <span>Mis Ideas Guardadas ({savedCount})</span>
             </button>
-
-            <a
-              href="https://wa.me/573001933834"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full py-3 text-center text-xs font-bold uppercase tracking-[0.18em] text-white bg-[#111112] hover:bg-[#C8A97E] flex items-center justify-center gap-2 transition-colors"
-            >
-              <MessageSquare className="w-4 h-4" />
-              <span>WhatsApp</span>
-            </a>
           </div>
         </div>
       )}
