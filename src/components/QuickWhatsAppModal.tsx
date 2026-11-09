@@ -48,15 +48,25 @@ export const QuickWhatsAppModal: React.FC<QuickWhatsAppModalProps> = ({
       // ignore
     }
 
-    const message =
-      `Hola JF Arquidiseños Barranquilla, me interesa pedir información y toma de medidas para este diseño:%0A%0A` +
-      `*Diseño:* ${item.title}${item.category ? ` (${item.category})` : ''}${item.location ? ` - ${item.location}` : ''}%0A` +
-      `*Nombre:* ${name.trim()}%0A` +
-      `*Sector en Barranquilla:* ${sector.trim()}%0A` +
-      (details.trim() ? `*Detalles o medidas:* ${details.trim()}%0A` : '') +
-      `%0A*Objetivo:* Deseo coordinar la asesoría técnica de toma de medidas sin costo.`;
+    const lines = [
+      '¡Hola, JF Arquidiseños Barranquilla! Deseo solicitar información y agendar la toma de medidas para este diseño:',
+      '',
+      `📌 *Diseño de interés:* ${item.title}${item.category ? ` (${item.category})` : ''}${item.location ? ` — ${item.location}` : ''}`,
+      `👤 *Nombre:* ${name.trim()}`,
+      `📍 *Sector en Barranquilla:* ${sector.trim()}`
+    ];
 
-    window.open(`https://wa.me/573001933834?text=${message}`, '_blank');
+    if (details.trim()) {
+      lines.push(`📝 *Detalles o medidas aproximadas:* ${details.trim()}`);
+    }
+
+    lines.push('');
+    lines.push('🤝 *Objetivo:* Deseo coordinar la asesoría técnica y toma de medidas sin costo en mi espacio.');
+
+    const fullMessage = lines.join('\n');
+    const whatsappUrl = `https://wa.me/573001933834?text=${encodeURIComponent(fullMessage)}`;
+
+    window.open(whatsappUrl, '_blank');
     onClose();
   };
 

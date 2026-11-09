@@ -34,24 +34,38 @@ export const ProjectSaverDrawer: React.FC<ProjectSaverDrawerProps> = ({
   const handleSendToWhatsApp = (e: React.FormEvent) => {
     e.preventDefault();
 
-    let itemsList = '';
+    const lines = [
+      '¡Hola, JF Arquidiseños Barranquilla! Guardé las siguientes ideas en su sitio web y deseo consultar disponibilidad y agendar la toma de medidas:',
+      ''
+    ];
+
     if (savedItems.length > 0) {
-      itemsList = savedItems
-        .map((item, idx) => `${idx + 1}. *${item.title}* (${item.category}${item.location ? ` - ${item.location}` : ''})`)
-        .join('%0A');
+      lines.push('📋 *Proyectos e ideas seleccionadas:*');
+      savedItems.forEach((item, idx) => {
+        lines.push(`${idx + 1}. *${item.title}* (${item.category}${item.location ? ` — ${item.location}` : ''})`);
+      });
+      lines.push('');
     } else {
-      itemsList = 'Mobiliario a la medida para mi hogar.';
+      lines.push('📋 *Línea de interés:* Mobiliario arquitectónico a la medida para mi hogar.');
+      lines.push('');
     }
 
-    const message =
-      `Hola JF Arquidiseños Barranquilla, guardé estas ideas en su página web y deseo consultar disponibilidad y toma de medidas:%0A%0A` +
-      `*Ideas de mi interés:*%0A${itemsList}%0A%0A` +
-      (clientName.trim() ? `*Nombre:* ${clientName.trim()}%0A` : '') +
-      `*Sector/Ciudad:* ${clientLocation.trim() || 'Barranquilla'}%0A` +
-      (clientNotes.trim() ? `*Detalles de mi espacio:* ${clientNotes.trim()}%0A` : '') +
-      `%0A*Objetivo:* Deseo coordinar asesoría técnica presencial sin costo en Barranquilla.`;
+    if (clientName.trim()) {
+      lines.push(`👤 *Nombre:* ${clientName.trim()}`);
+    }
+    lines.push(`📍 *Sector o ciudad:* ${clientLocation.trim() || 'Barranquilla'}`);
 
-    window.open(`https://wa.me/573001933834?text=${message}`, '_blank');
+    if (clientNotes.trim()) {
+      lines.push(`📝 *Detalles del espacio o medidas:* ${clientNotes.trim()}`);
+    }
+
+    lines.push('');
+    lines.push('🤝 *Objetivo:* Deseo coordinar la asesoría técnica presencial sin costo en Barranquilla.');
+
+    const fullMessage = lines.join('\n');
+    const whatsappUrl = `https://wa.me/573001933834?text=${encodeURIComponent(fullMessage)}`;
+
+    window.open(whatsappUrl, '_blank');
   };
 
   return (

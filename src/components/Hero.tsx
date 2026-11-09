@@ -39,7 +39,7 @@ export const Hero: React.FC = () => {
               </a>
 
               <a
-                href="https://wa.me/573001933834?text=Hola%20JF%20Arquidise%C3%B1os%20Barranquilla,%20deseo%20consultar%20por%20un%20proyecto%20de%20mobiliario%20a%20la%20medida."
+                href="https://wa.me/573001933834?text=%C2%A1Hola%2C%20JF%20Arquidise%C3%B1os%20Barranquilla!%20Deseo%20solicitar%20asesor%C3%ADa%20para%20un%20proyecto%20de%20mobiliario%20a%20la%20medida%20y%20agendar%20toma%20de%20medidas."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-xs uppercase tracking-[0.18em] font-medium text-neutral-800 border border-neutral-300 hover:border-[#C8A97E] hover:text-[#C8A97E] transition-colors"

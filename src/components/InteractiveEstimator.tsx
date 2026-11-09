@@ -94,19 +94,23 @@ export const InteractiveEstimator: React.FC<EstimatorProps> = ({ initialServiceI
       setIsSubmitting(false);
     }
 
-    const message = `Hola JF Arquidiseños Barranquilla, deseo cotizar:%0A%0A` +
-      `*Línea:* ${serviceName}%0A` +
-      `*Medida estimada:* ~${meters} metros lineales%0A` +
-      `*Gama:* ${tierName}%0A` +
-      `*Mesón de cuarzo:* ${includeCountertop ? 'Sí' : 'No'}%0A` +
-      `*Iluminación LED:* ${includeLed ? 'Sí' : 'No'}%0A` +
-      `*Presupuesto Estimado:* ${formatCOP(calculation.min)} - ${formatCOP(calculation.max)}%0A` +
-      (customerName ? `*Nombre:* ${customerName}%0A` : '') +
-      (customerPhone ? `*Teléfono:* ${customerPhone}%0A` : '') +
-      `*Ubicación:* Barranquilla / Atlántico%0A` +
-      `*Solicitud:* Quiero agendar una visita técnica de toma de medidas sin costo.`;
+    const fullMessage = [
+      '¡Hola, JF Arquidiseños Barranquilla! Deseo cotizar mi proyecto con las siguientes especificaciones:',
+      '',
+      `🗂️ *Línea:* ${serviceName}`,
+      `📐 *Medida estimada:* ~${meters} metros lineales`,
+      `✨ *Gama:* ${tierName}`,
+      `🪨 *Mesón de cuarzo:* ${includeCountertop ? 'Sí' : 'No'}`,
+      `💡 *Iluminación LED:* ${includeLed ? 'Sí' : 'No'}`,
+      `💰 *Presupuesto Estimado:* ${formatCOP(calculation.min)} - ${formatCOP(calculation.max)}`,
+      ...(customerName ? [`👤 *Nombre:* ${customerName}`] : []),
+      ...(customerPhone ? [`📱 *Teléfono:* ${customerPhone}`] : []),
+      '📍 *Ubicación:* Barranquilla y área metropolitana',
+      '',
+      '🤝 *Solicitud:* Deseo agendar una visita técnica para toma de medidas sin costo.'
+    ].join('\n');
 
-    window.open(`https://wa.me/573001933834?text=${message}`, '_blank');
+    window.open(`https://wa.me/573001933834?text=${encodeURIComponent(fullMessage)}`, '_blank');
   };
 
   return (

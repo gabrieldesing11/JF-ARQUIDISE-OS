@@ -15,16 +15,30 @@ export const ContactSection: React.FC = () => {
     if (!name.trim() || !phone.trim()) return;
 
     const selectedServiceName = SERVICES.find(s => s.id === service)?.title || service;
-    const text =
-      `Hola JF Arquidiseños Barranquilla, deseo agendar una visita técnica de toma de medidas:%0A%0A` +
-      `*Nombre:* ${name.trim()}%0A` +
-      `*Teléfono:* ${phone.trim()}%0A` +
-      `*Línea de Interés:* ${selectedServiceName}%0A` +
-      (location.trim() ? `*Sector:* ${location.trim()}%0A` : '') +
-      (message.trim() ? `*Detalles:* ${message.trim()}%0A` : '') +
-      `%0A*Objetivo:* Deseo coordinar la visita sin costo en Barranquilla.`;
 
-    window.open(`https://wa.me/573001933834?text=${text}`, '_blank');
+    const lines = [
+      '¡Hola, JF Arquidiseños Barranquilla! Deseo agendar una visita técnica para toma de medidas en mi espacio:',
+      '',
+      `👤 *Nombre:* ${name.trim()}`,
+      `📱 *Teléfono de contacto:* ${phone.trim()}`,
+      `🗂️ *Línea de interés:* ${selectedServiceName}`
+    ];
+
+    if (location.trim()) {
+      lines.push(`📍 *Sector en Barranquilla:* ${location.trim()}`);
+    }
+
+    if (message.trim()) {
+      lines.push(`📝 *Detalles o medidas aproximadas:* ${message.trim()}`);
+    }
+
+    lines.push('');
+    lines.push('🤝 *Objetivo:* Deseo coordinar la visita técnica sin costo ni compromiso en Barranquilla.');
+
+    const fullMessage = lines.join('\n');
+    const whatsappUrl = `https://wa.me/573001933834?text=${encodeURIComponent(fullMessage)}`;
+
+    window.open(whatsappUrl, '_blank');
     setSubmitted(true);
   };
 

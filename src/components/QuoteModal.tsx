@@ -68,15 +68,19 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
 
       setIsSuccess(true);
 
-      const msg = `Hola JF Arquidiseños Barranquilla, solicito cotización (Folio: *${data.folio}*):%0A%0A` +
-        `*Cliente:* ${name}%0A` +
-        `*WhatsApp:* ${phone}%0A` +
-        `*Línea:* ${serviceTitle}%0A` +
-        (notes ? `*Detalle:* ${notes}%0A` : '') +
-        `*Ubicación:* Barranquilla / Atlántico%0A` +
-        `*Objetivo:* Deseo coordinar toma de medidas sin costo.`;
+      const fullMsg = [
+        `¡Hola, JF Arquidiseños Barranquilla! Solicito cotización (Folio: ${data.folio}):`,
+        '',
+        `👤 *Cliente:* ${name.trim()}`,
+        `📱 *WhatsApp:* ${phone.trim()}`,
+        `🗂️ *Línea:* ${serviceTitle}`,
+        ...(notes ? [`📝 *Detalles:* ${notes.trim()}`] : []),
+        '📍 *Ubicación:* Barranquilla y área metropolitana',
+        '',
+        '🤝 *Objetivo:* Deseo coordinar la toma de medidas sin costo en mi espacio.'
+      ].join('\n');
 
-      window.open(`https://wa.me/573001933834?text=${msg}`, '_blank');
+      window.open(`https://wa.me/573001933834?text=${encodeURIComponent(fullMsg)}`, '_blank');
     } catch (err: any) {
       console.error('QuoteModal error:', err);
       setErrorMsg(err.message || 'Error de conexión. Intenta de nuevo.');
