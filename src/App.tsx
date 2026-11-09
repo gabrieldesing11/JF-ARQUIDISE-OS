@@ -4,6 +4,7 @@ import { Hero } from './components/Hero';
 import { Services } from './components/Services';
 import { ProjectGallery } from './components/ProjectGallery';
 import { TrustAndGuarantee } from './components/TrustAndGuarantee';
+import { CommunitySection } from './components/CommunitySection';
 import { FAQ } from './components/FAQ';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
@@ -68,7 +69,10 @@ export default function App() {
         {/* 5. Segundo Plano: Respaldo, Calidad & Garantía (Sin saturar) */}
         <TrustAndGuarantee />
 
-        {/* 6. Preguntas Frecuentes (FAQ) */}
+        {/* 6. Comunidad: Redes Sociales (Instagram & TikTok) */}
+        <CommunitySection />
+
+        {/* 7. Preguntas Frecuentes (FAQ) */}
         <FAQ />
 
         {/* 7. Contacto Rápido & Showroom en Barranquilla (Sin correos ni encuestas extensas) */}

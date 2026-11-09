@@ -14,8 +14,10 @@ export const BRAND_CONFIG = {
   showroomAddress: "Carrera 53 # 82 - 145, Alto Prado, Barranquilla",
   coverage: "Barranquilla, Villa Campestre, Puerto Colombia y Costa Caribe",
   socials: {
-    instagram: "https://instagram.com/jfarquidisenos",
-    facebook: "https://facebook.com/jfarquidisenos"
+    instagram: "https://www.instagram.com/arquidisenojf?utm_source=ig_web_button_share_sheet&exln=ZDNlZDc0MzIxNw==",
+    instagramHandle: "@arquidisenojf",
+    tiktok: "https://www.tiktok.com/@arquidiseniojf?is_from_webapp=1&sender_device=pc",
+    tiktokHandle: "@arquidiseniojf"
   },
   colors: {
     negro: "#020203",

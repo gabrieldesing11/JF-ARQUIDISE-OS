@@ -33,7 +33,7 @@ export const Services: React.FC<ServicesProps> = ({ onSaveItem, isItemSaved }) =
   };
 
   return (
-    <section id="servicios" className="py-20 bg-white relative border-b border-neutral-200">
+    <section id="servicios" className="py-14 sm:py-20 bg-white relative border-b border-neutral-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 pb-6 border-b border-neutral-200">
@@ -51,31 +51,34 @@ export const Services: React.FC<ServicesProps> = ({ onSaveItem, isItemSaved }) =
           </p>
         </div>
 
-        {/* Line Selector Buttons */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-none border-b border-neutral-100">
-          {SERVICES.map((service) => {
+        {/* Line Selector Buttons: Visible at once on mobile without needing to swipe horizontally */}
+        <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2 sm:gap-2.5 mb-8 pb-4 border-b border-neutral-200">
+          {SERVICES.map((service, index) => {
             const isActive = service.id === activeServiceId;
+            const isLastOdd = index === SERVICES.length - 1 && SERVICES.length % 2 !== 0;
             return (
               <button
                 key={service.id}
                 onClick={() => setActiveServiceId(service.id)}
-                className={`flex items-center gap-2 px-5 py-3 text-xs uppercase tracking-[0.18em] transition-all whitespace-nowrap shrink-0 cursor-pointer ${
+                className={`flex items-center justify-center sm:justify-start gap-1.5 sm:gap-2 px-3 sm:px-5 py-2.5 sm:py-3 text-[11px] sm:text-xs uppercase tracking-[0.12em] sm:tracking-[0.18em] transition-all cursor-pointer ${
+                  isLastOdd ? 'col-span-2 sm:col-span-1' : ''
+                } ${
                   isActive
                     ? 'bg-[#111112] text-white font-semibold shadow-xs'
-                    : 'bg-neutral-100 text-neutral-700 hover:text-neutral-900 hover:bg-neutral-200/70'
+                    : 'bg-neutral-100 text-neutral-700 hover:text-neutral-900 hover:bg-neutral-200/70 border border-neutral-200/80'
                 }`}
               >
-                <span className={`font-mono text-xs ${isActive ? 'text-[#C8A97E]' : 'text-neutral-400'}`}>
+                <span className={`font-mono text-[10px] sm:text-xs ${isActive ? 'text-[#C8A97E]' : 'text-neutral-400'}`}>
                   {service.number}
                 </span>
-                <span>{service.title}</span>
+                <span className="truncate">{service.title}</span>
               </button>
             );
           })}
         </div>
 
         {/* Active Service Showcase Card */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center bg-neutral-50/70 border border-neutral-200 p-6 sm:p-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center bg-neutral-50/70 border border-neutral-200 p-4 sm:p-10">
           {/* Visual with Photo / Blueprint Toggle */}
           <div className="lg:col-span-6">
             <div className="relative aspect-[4/3] sm:aspect-[16/11] overflow-hidden border border-neutral-200 bg-neutral-200 shadow-md">

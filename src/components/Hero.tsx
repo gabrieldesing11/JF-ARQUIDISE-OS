@@ -91,22 +91,6 @@ export const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Category Strip */}
-      <div className="w-full border-t border-neutral-200 bg-neutral-50/70 mt-14 py-3.5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center justify-center md:justify-between gap-4 md:gap-8 text-xs uppercase tracking-[0.2em] font-medium text-neutral-600">
-            <a href="#servicios" className="hover:text-[#C8A97E] transition-colors">Cocinas Integrales</a>
-            <span aria-hidden="true" className="text-neutral-300">·</span>
-            <a href="#servicios" className="hover:text-[#C8A97E] transition-colors">Closets & Vestidores</a>
-            <span aria-hidden="true" className="text-neutral-300">·</span>
-            <a href="#servicios" className="hover:text-[#C8A97E] transition-colors">Centros de Entretenimiento</a>
-            <span aria-hidden="true" className="text-neutral-300">·</span>
-            <a href="#servicios" className="hover:text-[#C8A97E] transition-colors">Divisiones de Baño</a>
-            <span aria-hidden="true" className="text-neutral-300">·</span>
-            <a href="#servicios" className="hover:text-[#C8A97E] transition-colors">Puertas & Panelados</a>
-          </div>
-        </div>
-      </div>
     </section>
   );
 };

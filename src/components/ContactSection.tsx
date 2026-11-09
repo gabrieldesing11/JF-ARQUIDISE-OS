@@ -29,24 +29,24 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contacto" className="py-20 bg-white relative border-b border-neutral-200">
+    <section id="contacto" className="py-14 sm:py-20 bg-white relative border-b border-neutral-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mb-12">
+        <div className="max-w-3xl mb-8 sm:mb-12">
           <div className="text-xs uppercase tracking-[0.24em] text-[#C8A97E] mb-2 font-semibold">
             Contacto Directo · Barranquilla
           </div>
-          <h2 className="text-3xl sm:text-4xl font-light text-neutral-900 tracking-tight">
+          <h2 className="text-2xl sm:text-4xl font-light text-neutral-900 tracking-tight">
             Agenda tu visita técnica{' '}
             <span className="font-serif italic text-[#C8A97E]">sin costo ni compromiso</span>
           </h2>
-          <p className="text-sm text-neutral-600 mt-2 font-light">
+          <p className="text-xs sm:text-sm text-neutral-600 mt-2 font-light">
             Escríbenos directamente o déjanos tus datos para coordinar el levantamiento de medidas en tu hogar.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 items-start">
           {/* Sede Info (Left) */}
-          <div className="lg:col-span-5 p-8 bg-neutral-50 border border-neutral-200 space-y-6">
+          <div className="lg:col-span-5 p-5 sm:p-8 bg-neutral-50 border border-neutral-200 space-y-5 sm:space-y-6">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-neutral-900 pb-3 border-b border-neutral-200">
               Sede & Showroom Barranquilla
             </h3>
@@ -99,7 +99,7 @@ export const ContactSection: React.FC = () => {
           </div>
 
           {/* Simple Form without email (Right) */}
-          <div className="lg:col-span-7 bg-white border border-neutral-200 p-8 sm:p-10 shadow-xs">
+          <div className="lg:col-span-7 bg-white border border-neutral-200 p-5 sm:p-10 shadow-xs">
             {submitted ? (
               <div className="text-center py-10 space-y-4">
                 <div className="w-12 h-12 rounded-full bg-emerald-50 text-emerald-600 mx-auto flex items-center justify-center border border-emerald-200">

@@ -32,7 +32,7 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onSaveItem, isIt
   };
 
   return (
-    <section id="proyectos" className="py-20 bg-neutral-50/50 relative border-b border-neutral-200">
+    <section id="proyectos" className="py-14 sm:py-20 bg-neutral-50/50 relative border-b border-neutral-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 pb-6 border-b border-neutral-200">

@@ -32,6 +32,29 @@ export const Footer: React.FC<FooterProps> = ({ onOpenSavedDrawer }) => {
             <p className="text-xs text-neutral-400 font-light leading-relaxed max-w-sm">
               Mobiliario arquitectónico a la medida en Barranquilla. Diseñamos, fabricamos e instalamos cocinas integrales, closets, centros de entretenimiento, divisiones de baño y puertas.
             </p>
+
+            {/* Social Media Links */}
+            <div className="flex items-center gap-3 pt-2">
+              <a
+                href={BRAND_CONFIG.socials.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs text-neutral-300 hover:text-white bg-neutral-800/80 hover:bg-[#E2CDA7] hover:text-[#111112] transition-colors border border-neutral-700 font-medium"
+                aria-label="Instagram de JF Arquidiseños"
+              >
+                <span>Instagram</span>
+              </a>
+
+              <a
+                href={BRAND_CONFIG.socials.tiktok}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs text-neutral-300 hover:text-white bg-neutral-800/80 hover:bg-[#E2CDA7] hover:text-[#111112] transition-colors border border-neutral-700 font-medium"
+                aria-label="TikTok de JF Arquidiseños"
+              >
+                <span>TikTok</span>
+              </a>
+            </div>
           </div>
 
           {/* Lines */}
