@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Eye, Bookmark, MessageSquare, Check } from 'lucide-react';
 import { SERVICES } from '../data/brandData';
 import { SavedItem } from './ProjectSaverDrawer';
+import { QuickWhatsAppModal, ConsultItem } from './QuickWhatsAppModal';
 
 interface ServicesProps {
   onSaveItem: (item: SavedItem) => void;
@@ -10,6 +11,7 @@ interface ServicesProps {
 
 export const Services: React.FC<ServicesProps> = ({ onSaveItem, isItemSaved }) => {
   const [activeServiceId, setActiveServiceId] = useState<string>('cocinas');
+  const [quickConsultService, setQuickConsultService] = useState<ConsultItem | null>(null);
   const [viewModes, setViewModes] = useState<Record<string, 'photo' | 'blueprint'>>({
     cocinas: 'photo',
     closets: 'photo',
@@ -27,9 +29,13 @@ export const Services: React.FC<ServicesProps> = ({ onSaveItem, isItemSaved }) =
     }));
   };
 
-  const handleConsultWhatsApp = (serviceTitle: string) => {
-    const text = `Hola JF Arquidiseños Barranquilla, estoy interesado en cotizar la línea de *${serviceTitle}* para mi hogar. ¿Podrían brindarme información y agendar una visita de toma de medidas?`;
-    window.open(`https://wa.me/573001933834?text=${encodeURIComponent(text)}`, '_blank');
+  const handleConsultWhatsApp = (service: typeof activeService) => {
+    setQuickConsultService({
+      title: service.title,
+      category: 'Línea de Servicio',
+      image: service.photoImg,
+      location: 'Barranquilla'
+    });
   };
 
   return (
@@ -182,7 +188,7 @@ export const Services: React.FC<ServicesProps> = ({ onSaveItem, isItemSaved }) =
               </button>
 
               <button
-                onClick={() => handleConsultWhatsApp(activeService.title)}
+                onClick={() => handleConsultWhatsApp(activeService)}
                 className="inline-flex items-center justify-center gap-2 px-5 py-3.5 text-xs uppercase tracking-[0.16em] font-medium text-neutral-800 bg-white border border-neutral-300 hover:border-[#C8A97E] hover:text-[#C8A97E] transition-colors cursor-pointer"
               >
                 <MessageSquare className="w-4 h-4 text-[#C8A97E]" />
@@ -191,6 +197,13 @@ export const Services: React.FC<ServicesProps> = ({ onSaveItem, isItemSaved }) =
             </div>
           </div>
         </div>
+
+        {/* Quick Modal to collect name and sector before redirecting to WhatsApp */}
+        <QuickWhatsAppModal
+          isOpen={!!quickConsultService}
+          onClose={() => setQuickConsultService(null)}
+          item={quickConsultService}
+        />
       </div>
     </section>
   );

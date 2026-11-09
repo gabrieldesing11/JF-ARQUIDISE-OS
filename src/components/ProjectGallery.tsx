@@ -3,6 +3,7 @@ import { PROJECTS } from '../data/brandData';
 import { ProjectItem } from '../types';
 import { Bookmark, Check, MessageSquare, MapPin, X, ArrowUpRight } from 'lucide-react';
 import { SavedItem } from './ProjectSaverDrawer';
+import { QuickWhatsAppModal, ConsultItem } from './QuickWhatsAppModal';
 
 interface ProjectGalleryProps {
   onSaveItem: (item: SavedItem) => void;
@@ -12,6 +13,7 @@ interface ProjectGalleryProps {
 export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onSaveItem, isItemSaved }) => {
   const [filter, setFilter] = useState<string>('todos');
   const [activeProject, setActiveProject] = useState<ProjectItem | null>(null);
+  const [quickConsultItem, setQuickConsultItem] = useState<ConsultItem | null>(null);
 
   const categories = [
     { id: 'todos', label: 'Todos (25)' },
@@ -27,8 +29,12 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onSaveItem, isIt
     : PROJECTS.filter(p => p.category === filter);
 
   const handleConsultProjectOnWhatsApp = (project: ProjectItem) => {
-    const text = `Hola JF Arquidiseños Barranquilla, me gustó mucho este proyecto de su catálogo: *${project.title}* (${project.category} - ${project.location}). Quisiera saber cómo podríamos adaptar un diseño similar a las medidas de mi espacio.`;
-    window.open(`https://wa.me/573001933834?text=${encodeURIComponent(text)}`, '_blank');
+    setQuickConsultItem({
+      title: project.title,
+      category: project.category,
+      image: project.image,
+      location: project.location
+    });
   };
 
   return (
@@ -261,6 +267,13 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onSaveItem, isIt
             </div>
           </div>
         )}
+
+        {/* Quick Modal to collect name and sector before redirecting to WhatsApp */}
+        <QuickWhatsAppModal
+          isOpen={!!quickConsultItem}
+          onClose={() => setQuickConsultItem(null)}
+          item={quickConsultItem}
+        />
       </div>
     </section>
   );
