@@ -3,10 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JF Arquidiseños | Mobiliario a la Medida · Barranquilla</title>
-    <meta name="description" content="Diseño, fabricación e instalación de mobiliario arquitectónico a la medida en Barranquilla: cocinas integrales, closets, centros de entretenimiento, divisiones de baño y puertas." />
-    <meta property="og:title" content="JF Arquidiseños | Mobiliario a la Medida · Barranquilla" />
-    <meta property="og:description" content="Diseño, fabricación e instalación de mobiliario arquitectónico a la medida en Barranquilla: cocinas integrales, closets, centros de entretenimiento, divisiones de baño y puertas." />
+
+    <!-- CAMBIO 1: Etiqueta para que Google y otros buscadores no indexen la página -->
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- CAMBIO 2: Título de la página y etiquetas og:title y twitter:title actualizadas -->
+    <title>Propuesta de diseño · JF Arquidiseños</title>
+    <meta property="og:title" content="Propuesta de diseño · JF Arquidiseños" />
+    <meta name="twitter:title" content="Propuesta de diseño · JF Arquidiseños" />
+
+    <!-- CAMBIO 3: Etiquetas meta description y og:description (y twitter:description) actualizadas -->
+    <meta name="description" content="Propuesta de diseño web para JF Arquidiseños. Esta no es la página oficial del negocio." />
+    <meta property="og:description" content="Propuesta de diseño web para JF Arquidiseños. Esta no es la página oficial del negocio." />
+    <meta name="twitter:description" content="Propuesta de diseño web para JF Arquidiseños. Esta no es la página oficial del negocio." />
+
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/brand/logo_black_transparent.png" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -16,8 +26,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   </head>
   <body class="bg-white text-[#111112] font-sans antialiased selection:bg-[#E2CDA7] selection:text-[#111112]">
+    <!-- CAMBIO 4: Franja fija discreta en la parte superior, con fondo oscuro y texto claro, sin tapar el menú ni el contenido -->
+    <div id="demo-disclaimer-banner" class="fixed top-0 left-0 right-0 z-50 bg-[#111112] text-neutral-300 text-[11px] sm:text-xs py-1.5 px-4 text-center font-medium border-b border-neutral-800 flex items-center justify-center gap-2">
+      <span class="w-1.5 h-1.5 rounded-full bg-[#C8A97E] shrink-0" aria-hidden="true"></span>
+      <span>Propuesta de diseño · No es el sitio oficial de JF Arquidiseños</span>
+    </div>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-

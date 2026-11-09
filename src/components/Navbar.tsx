@@ -32,13 +32,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-40">
-      {/* Demo Disclaimer Banner */}
-      <div className="bg-[#111112] text-neutral-300 text-[11px] sm:text-xs py-1.5 px-4 text-center font-medium border-b border-neutral-800 flex items-center justify-center gap-2">
-        <span className="w-1.5 h-1.5 rounded-full bg-[#C8A97E] shrink-0" />
-        <span>Propuesta de diseño, no es el sitio oficial de JF Arquidiseños</span>
-      </div>
-
+    <header className="fixed top-[29px] left-0 right-0 z-40">
       <div
         className={`transition-all duration-300 ${
           isScrolled
