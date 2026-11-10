@@ -61,7 +61,7 @@ export const QuickWhatsAppModal: React.FC<QuickWhatsAppModalProps> = ({
     }
 
     lines.push('');
-    lines.push('🤝 *Objetivo:* Deseo coordinar la asesoría técnica y toma de medidas sin costo en mi espacio.');
+    lines.push('🤝 *Objetivo:* Coordinar una asesoría y la toma de medidas.');
 
     const fullMessage = lines.join('\n');
     const whatsappUrl = `https://wa.me/573001933834?text=${encodeURIComponent(fullMessage)}`;

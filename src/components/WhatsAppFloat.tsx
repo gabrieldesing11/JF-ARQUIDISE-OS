@@ -15,7 +15,7 @@ export const WhatsAppFloat: React.FC<WhatsAppFloatProps> = ({
 
   const handleOpenWhatsApp = () => {
     const defaultMsg = encodeURIComponent(
-      '¡Hola, JF Arquidiseños Barranquilla! Deseo solicitar información sobre sus servicios de mobiliario a la medida y coordinar una visita técnica de toma de medidas sin costo en mi espacio.'
+      '¡Hola, JF Arquidiseños Barranquilla! Deseo solicitar información sobre sus servicios de mobiliario a la medida y coordinar una asesoría y la toma de medidas.'
     );
     window.open(`https://wa.me/573001933834?text=${defaultMsg}`, '_blank');
   };

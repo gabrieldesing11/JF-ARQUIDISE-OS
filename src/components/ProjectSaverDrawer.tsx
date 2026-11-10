@@ -60,7 +60,7 @@ export const ProjectSaverDrawer: React.FC<ProjectSaverDrawerProps> = ({
     }
 
     lines.push('');
-    lines.push('🤝 *Objetivo:* Deseo coordinar la asesoría técnica presencial sin costo en Barranquilla.');
+    lines.push('🤝 *Objetivo:* Coordinar una asesoría y la toma de medidas.');
 
     const fullMessage = lines.join('\n');
     const whatsappUrl = `https://wa.me/573001933834?text=${encodeURIComponent(fullMessage)}`;

@@ -33,7 +33,7 @@ export const ContactSection: React.FC = () => {
     }
 
     lines.push('');
-    lines.push('🤝 *Objetivo:* Deseo coordinar la visita técnica sin costo ni compromiso en Barranquilla.');
+    lines.push('🤝 *Objetivo:* Coordinar una asesoría y la toma de medidas.');
 
     const fullMessage = lines.join('\n');
     const whatsappUrl = `https://wa.me/573001933834?text=${encodeURIComponent(fullMessage)}`;
